@@ -53,3 +53,18 @@ function operate(operator, firstNumber, secondNumber) {
             return null;
     }
 }
+
+function appendNumber(number) {
+    if (display.textContent === '0' || shouldResetDisplay) {
+        display.textContent = number;
+        shouldResetDisplay = false;
+    } else {
+        display.textContent += number;
+    }
+}
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        appendNumber(button.textContent);
+    });
+});
