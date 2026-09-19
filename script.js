@@ -22,19 +22,34 @@ console.log('Clear Button:', clearButton);
 console.log('Backspace Button:', backspaceButton);
 console.log('Decimal Button:', decimalButton);
 
-function add(a,b) {
-    return a + b;
+function add(firstNumber, secondNumber) {
+    return parseFloat(firstNumber) + parseFloat(secondNumber);
 }
-function subtract(a,b) {
-    return a - b;
+function subtract(firstNumber, secondNumber) {
+    return parseFloat(firstNumber) - parseFloat(secondNumber);
 }
-function multiply(a,b) {
-    return a * b;
+function multiply(firstNumber, secondNumber) {
+    return parseFloat(firstNumber) * parseFloat(secondNumber);
 }
-function divide(a,b) {
-    if (b === 0) {
+function divide(firstNumber, secondNumber) {
+    if (parseFloat(secondNumber) === 0) {
         alert("Cannot divide by zero");
         return null;
     }
-    return a / b;
+    return parseFloat(firstNumber) / parseFloat(secondNumber);
+}
+
+function operate(operator, firstNumber, secondNumber) {
+    switch (operator) {
+        case '+':
+            return add(firstNumber, secondNumber);
+        case '-':
+            return subtract(firstNumber, secondNumber);
+        case '*':
+            return multiply(firstNumber, secondNumber);
+        case '/':
+            return divide(firstNumber, secondNumber);
+        default:
+            return null;
+    }
 }
