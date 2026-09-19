@@ -21,3 +21,20 @@ console.log('Equal Button:', equalButton);
 console.log('Clear Button:', clearButton);
 console.log('Backspace Button:', backspaceButton);
 console.log('Decimal Button:', decimalButton);
+
+function add(a,b) {
+    return a + b;
+}
+function subtract(a,b) {
+    return a - b;
+}
+function multiply(a,b) {
+    return a * b;
+}
+function divide(a,b) {
+    if (b === 0) {
+        alert("Cannot divide by zero");
+        return null;
+    }
+    return a / b;
+}
