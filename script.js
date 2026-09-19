@@ -1,3 +1,10 @@
+let firstNumber = '';
+let secondNumber = '';
+let currentOperator = null;
+let shouldResetDisplay = false;
+
+
+
 const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.btn');
 const operators = document.querySelectorAll('.operator');
