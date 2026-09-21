@@ -3,8 +3,6 @@ let secondNumber = '';
 let currentOperator = null;
 let shouldResetDisplay = false;
 
-
-
 const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.btn');
 const operators = document.querySelectorAll('.operator');
@@ -12,7 +10,6 @@ const equalButton = document.querySelector('#equal');
 const clearButton = document.querySelector('#clear');
 const backspaceButton = document.querySelector('#backspace');
 const decimalButton = document.querySelector('#decimal');
-
 
 console.log('Display:', display);
 console.log('All Buttons:', buttons);
@@ -68,3 +65,20 @@ buttons.forEach((button) => {
         appendNumber(button.textContent);
     });
 });
+
+function setOperator(operator) {
+    if (currentOperator !== null && !shouldResetDisplay) {
+        secondNumber = display.textContent;
+        let result = operate(currentOperator, firstNumber, secondNumber);
+
+        result = Math.round(result * 1000) / 1000;
+        display.textContent = result;
+        firstNumber = result;
+
+    } else {
+        firstNumber = display.textContent;
+    }
+
+    currentOperator = operator;
+    shouldResetDisplay = true;
+}
