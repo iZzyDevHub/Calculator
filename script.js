@@ -82,3 +82,9 @@ function setOperator(operator) {
     currentOperator = operator;
     shouldResetDisplay = true;
 }
+
+operators.forEach((button) => {
+    button.addEventListener('click', () => {
+        setOperator(button.textContent);
+    });
+});
