@@ -90,5 +90,9 @@ operators.forEach((button) => {
 });
 
 function evaluate() {
-    equalButton.addEventListener('click', evaluate);
+    if (currentOperator === null || shouldResetDisplay) return;
+    if (currentOperator === '/' && display.textContent === '0') {
+        alert("Cannot divide by zero");
+        return;
+    }
 }
