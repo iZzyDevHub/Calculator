@@ -106,3 +106,37 @@ function evaluate() {
     currentOperator = null;
     shouldResetDisplay = true;
 }
+equalButton.addEventListener('click', evaluate);
+
+function clear() {
+    display.textContent = '0';
+    firstNumber = '';
+    secondNumber = '';
+    currentOperator = null;
+    shouldResetDisplay = false;
+}
+clearButton.addEventListener('click', clear);
+
+function backspaceButton() {
+    if (shouldResetDisplay === true) {
+        display.textContent = '0';
+    }else {
+        display.textContent = display.textContent.slice(0, -1);
+        if (display.textContent === '') {
+            display.textContent = '0';
+        }  
+    }
+}
+backspaceButton.addEventListener('click', backspaceButton);
+
+function decimalButton() {
+    if (shouldResetDisplay === true) {
+        display.textContent = '0';
+        shouldResetDisplay = false;
+    }else if (display.textContent.includes('.')) {
+        return;
+    } else{
+        display.textContent += '.';
+    }
+}
+decimalButton.addEventListener('click', decimalButton);
