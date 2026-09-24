@@ -93,6 +93,9 @@ function evaluate() {
     if (currentOperator === null || shouldResetDisplay) return;
     if (currentOperator === '/' && display.textContent === '0') {
         alert("Cannot divide by zero");
+        display.textContent = '0';
+        currentOperator = null;
+        shouldResetDisplay = true;
         return;
     }
 }
