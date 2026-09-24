@@ -88,3 +88,7 @@ operators.forEach((button) => {
         setOperator(button.textContent);
     });
 });
+
+function evaluate() {
+    equalButton.addEventListener('click', evaluate);
+}
