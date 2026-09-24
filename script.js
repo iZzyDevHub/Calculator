@@ -102,4 +102,7 @@ function evaluate() {
     secondNumber = display.textContent;
     let result = operate(currentOperator, firstNumber, secondNumber);
     result = Math.round(result * 1000) /1000;
+    display.textContent = result;
+    currentOperator = null;
+    shouldResetDisplay = true;
 }
