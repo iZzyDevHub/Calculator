@@ -140,3 +140,13 @@ function decimalButton() {
     }
 }
 decimalButton.addEventListener('click', decimalButton);
+
+function clearCalculator() {
+    display.textContent = '0';
+    firstNumber = '';
+    secondNumber = '';
+    currentOperator = null;
+    shouldResetDisplay = 'false';
+}
+clearButton.addEventListener('click', clearCalculator);
+
