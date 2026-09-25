@@ -150,3 +150,12 @@ function clearCalculator() {
 }
 clearButton.addEventListener('click', clearCalculator);
 
+function deleteDigit() {
+    if (shouldResetDisplay === true) return;
+    display.textContent = display.textContent.slice(0, -1);
+    if (display.textContent === '' || display.textContent === '-') {
+        display.textContent = '0';
+    }
+}
+
+backspaceButton.addEventListener('click', deleteDigit);
