@@ -4,20 +4,12 @@ let currentOperator = null;
 let shouldResetDisplay = false;
 
 const display = document.querySelector('#display');
-const buttons = document.querySelectorAll('.btn');
+const numberButtons = document.querySelectorAll('.btn');
 const operators = document.querySelectorAll('.operator');
 const equalButton = document.querySelector('#equal');
 const clearButton = document.querySelector('#clear');
 const backspaceButton = document.querySelector('#backspace');
 const decimalButton = document.querySelector('#decimal');
-
-console.log('Display:', display);
-console.log('All Buttons:', buttons);
-console.log('Operators:', operators);
-console.log('Equal Button:', equalButton);
-console.log('Clear Button:', clearButton);
-console.log('Backspace Button:', backspaceButton);
-console.log('Decimal Button:', decimalButton);
 
 function add(firstNumber, secondNumber) {
     return parseFloat(firstNumber) + parseFloat(secondNumber);
@@ -60,7 +52,7 @@ function appendNumber(number) {
     }
 }
 
-buttons.forEach((button) => {
+numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
         appendNumber(button.textContent);
     });
@@ -74,7 +66,6 @@ function setOperator(operator) {
         result = Math.round(result * 1000) / 1000;
         display.textContent = result;
         firstNumber = result;
-
     } else {
         firstNumber = display.textContent;
     }
@@ -101,8 +92,9 @@ function evaluate() {
 
     secondNumber = display.textContent;
     let result = operate(currentOperator, firstNumber, secondNumber);
-    result = Math.round(result * 1000) /1000;
+    result = Math.round(result * 1000) / 1000;
     display.textContent = result;
+    firstNumber = result;
     currentOperator = null;
     shouldResetDisplay = true;
 }
@@ -117,45 +109,23 @@ function clear() {
 }
 clearButton.addEventListener('click', clear);
 
-function backspaceButton() {
-    if (shouldResetDisplay === true) {
-        display.textContent = '0';
-    }else {
-        display.textContent = display.textContent.slice(0, -1);
-        if (display.textContent === '') {
-            display.textContent = '0';
-        }  
-    }
-}
-backspaceButton.addEventListener('click', backspaceButton);
-
-function decimalButton() {
-    if (shouldResetDisplay === true) {
-        display.textContent = '0';
-        shouldResetDisplay = false;
-    }else if (display.textContent.includes('.')) {
-        return;
-    } else{
-        display.textContent += '.';
-    }
-}
-decimalButton.addEventListener('click', decimalButton);
-
-function clearCalculator() {
-    display.textContent = '0';
-    firstNumber = '';
-    secondNumber = '';
-    currentOperator = null;
-    shouldResetDisplay = 'false';
-}
-clearButton.addEventListener('click', clearCalculator);
-
 function deleteDigit() {
-    if (shouldResetDisplay === true) return;
+    if (shouldResetDisplay) return;
     display.textContent = display.textContent.slice(0, -1);
     if (display.textContent === '' || display.textContent === '-') {
         display.textContent = '0';
     }
 }
-
 backspaceButton.addEventListener('click', deleteDigit);
+
+function appendDecimal() {
+    if (shouldResetDisplay) {
+        display.textContent = '0.';
+        shouldResetDisplay = false;
+        return;
+    }
+    if (!display.textContent.includes('.')) {
+        display.textContent += '.';
+    }
+}
+decimalButton.addEventListener('click', appendDecimal);
