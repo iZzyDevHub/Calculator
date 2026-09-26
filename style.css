@@ -63,10 +63,15 @@ button:active {
 .operator:hover {
     background-color: #f9e2af;
 }
+
 #clear {
     grid-column: span 2;
     background-color: #f38ba8;
     color: #11111b;
+}
+
+#clear:hover {
+    background-color: #eba0ac;
 }
 
 #equal {
@@ -96,5 +101,12 @@ button:active {
 }
 
 #backspace {
-    grid-column: span 2;
+    grid-column: span 1;
+    background-color: #f9e2af;
+    color: #11111b;
+}
+
+#decimal {
+    background-color: #cba6f7;
+    color: #11111b;
 }
