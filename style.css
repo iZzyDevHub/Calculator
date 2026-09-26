@@ -63,3 +63,18 @@ button:hover,.btn:hover,.operator:hover {
     background-color: #f9a825;
     color: white;
 }
+
+#equal {
+    background-color: #007aff;
+    color: white;
+}
+
+#clear {
+    background-color: #ff3b30;
+    color: white;
+    grid-column: span 2;
+}
+
+#backspace {
+    grid-column: span 2;
+}
