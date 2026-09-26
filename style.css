@@ -20,10 +20,13 @@ body {
     grid-column : span 4;
     text-align: right;
     font-size: 2.5rem;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+    font-weight: bold;
+    background-color: #181825;
+    color: #a6e3a1;
+    padding: 15px;
+    border-radius: 8px;
     overflow-x: auto;
+    margin-bottom: 15px;
 }
 
 .buttons {
