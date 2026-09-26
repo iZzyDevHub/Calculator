@@ -35,29 +35,48 @@ body {
   gap: 10px; /* Space between buttons */
 }
 
-button,.btn,.operator {
+button,.btn {
     padding: 18px 0;
     font-size: 1.2rem;
+    font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #313244;
+    color: #cdd6f4;
+    transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
-button:hover,.btn:hover,.operator:hover {
-    background-color: #ddd;
+button:hover,.btn:hover {
+    background-color: #45475a;
 }
 
+button:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background-color: #fab387;
+    color: #11111b;
+}
+
+.operator:hover {
+    background-color: #f9e2af;
+}
 #clear {
     grid-column: span 2;
-    background-color: red;
-    color: white;
+    background-color: #f38ba8;
+    color: #11111b;
 }
 
 #equal {
     grid-column: span 2;
-    background-color: blue;
-    color: white;
+    background-color: #89b4fa;
+    color: #11111b;
+}
+
+#equal:hover {
+    background-color: #b4befe;
 }
 
 .operator {
